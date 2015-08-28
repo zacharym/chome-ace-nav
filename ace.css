@@ -4,8 +4,12 @@ a.pulse {
 
 .user-prompt {
     background-color: #c0c0c0;
+    color: #FFA900;
     position:fixed;
-    top:0;
+    text-align: center;
+    margin: 0 auto;
+    font-size: 4em;
+    top:200px;
     width:100%;
     z-index:100;
 }
