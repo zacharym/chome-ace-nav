@@ -4,28 +4,43 @@ function togglePage(){
     });
 }
 
-// function showButtons(){
-// }
-
-// function hideButtons(){
-// }
-
-links = [];
-$('a').each(function(idx, val){
-    links.push({
-        "index": idx,
-        "target": val,
-        "title": $(this).html()
+function followLink(links, keys){
+    console.log("about to follow link");
+    console.log("keys: ", keys);
+    var chars = keys.map(function(code){
+        return String.fromCharCode(code);
     });
-});
-
-for(var i=0, len=links.length; i < len; i++){
-    console.log("index: ", links[i].index);
-    console.log("target: ", links[i].target);
-    console.log("title: ", links[i].title);
+    chars = chars.join('');
+    chars = chars.toLowerCase();
+    console.log("chars: ", chars);
+    for(var i=0, len=links.length; i<len; i++){
+        console.log("link title: ", links[i].title);
+        if(links[i].title.indexOf(chars) > -1){
+            window.location.replace(links[i].target);
+        }
+    }
 }
 
-togglePage();
-alert('a');
-togglePage();
+var listener = new window.keypress.Listener();
+
+listener.simple_combo("control j", function(){
+    links = [];
+    $('a').each(function(idx, val){
+        links.push({
+            "index": idx,
+            "target": val,
+            "title": $(this).html()
+        });
+    });
+    togglePage();
+    var keys = [];
+    $(document).keydown(function(e) {
+        if (e.keyCode == 13) {
+            followLink(links, keys);
+        } else {
+            keys.push(e.keyCode);
+            console.log("keys: ", keys);
+        }
+    });
+});
 

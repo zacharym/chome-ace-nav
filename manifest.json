@@ -9,7 +9,7 @@
         {
             "matches": ["*://*/*"],
             "css": ["ace.css"],
-            "js": ["jquery.js", "ace.js"]
+            "js": ["jquery.js", "keypress.js", "ace.js"]
         }
     ],
     "permissions": ["activeTab"]
