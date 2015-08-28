@@ -1,28 +1,16 @@
 {
-  // Required
-  "manifest_version": 2,
-  "name": "Ace-Jump-Navigator",
-  "version": "0.0.1",
+    "manifest_version": 2,
 
-  "description": "Follow any link on the screen with three keyboard actions",
+    "name": "Ace-Jump-Navigator",
+    "description": "Follow any link on the screen easily with the keyboard",
+    "version": "0.0.1",
 
-  // Pick one (or none)
-  // "browser_action": {...},
-  // "page_action": {...},
-
-  // Optional
-  "author": "Zachary Markin - github.com/zacharym",
-  // "automation": ...,
-  // "background": {
-  // // Recommended
-  //    "scripts": ["parser.js"],
-  //    "persistent": false
-  // },
-  "content_scripts": [
-      {
-          "js": ["parser.js", "jquery.js"],
-          "run_at": "document_idle"
-      }
-  ],
-  "permissions": ["activeTab"]
+    "content_scripts": [
+        {
+            "matches": ["*://*/*"],
+            "css": ["ace.css"],
+            "js": ["jquery.js", "ace.js"]
+        }
+    ],
+    "permissions": ["activeTab"]
 }
