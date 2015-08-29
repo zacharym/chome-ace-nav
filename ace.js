@@ -69,7 +69,7 @@ listener.simple_combo("control j", function(){
     addPrompt();
     var keys = [];
     var valids = [];
-    listener.simple_combo("control f", function(){
+    listener.simple_combo("control k", function(){
         hidePrompt();
         removePage();
         $(document).unbind("keydown");
