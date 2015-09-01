@@ -5,8 +5,8 @@ This is still under development so you can't find it in the extension store but 
 https://developer.chrome.com/extensions/getstarted#unpacked
 
 ### Usage
-  * see all the links: `Control - j`
-  * links will filter as you type part of the title of the result
+  * see all the links on a given page: `Control - j`
+  * links will filter as you type part of the title of the result. Results are not case-sensative.
   * follow link: `return`
   * cancel: `Control - k`
 
