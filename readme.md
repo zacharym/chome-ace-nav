@@ -1,8 +1,7 @@
 ## Quickly Navigate Your Browser Via the Keyboard
 
 ### Up and Running
-This is still under development so you can't find it in the extension store but you can get in running by cloning the repo and following these instructions:
-https://developer.chrome.com/extensions/getstarted#unpacked
+  * Get it from the Chrome Extension Store: https://chrome.google.com/webstore/detail/ace-jump-navigator/dipffcjcjicnidphlogefddkplekfocl
 
 ### Usage
   * see all the links on a given page: `Control - j`
