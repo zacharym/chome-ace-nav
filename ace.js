@@ -19,12 +19,11 @@ function removePage(){
     });
 }
 
-function filterPage(keys){
-    var chars = keysToString(keys);
+function filterLinkSet(linkSet, word){
     var valids = [];
-    $('a').each(function(idx, val){
+    $.each(linkSet, function(idx, val){
         var title = $(this).html().toLowerCase();
-        if ( !isMatch(title, chars) ){
+        if ( !isMatch(title, word) ){
             $(this).removeClass('pulse');
         } else {
             $(this).addClass('pulse');
@@ -32,6 +31,16 @@ function filterPage(keys){
         }
     });
     return valids;
+}
+
+function filterPage(keys){
+    var chars = keysToString(keys);
+    var words = chars.split(' ');
+    var linkSet = $('a');
+    $.each(words, function(idx, val){
+        linkSet = filterLinkSet(linkSet, val);
+    });
+    return linkSet;
 }
 
 function isMatch(str, pattern){
@@ -74,6 +83,9 @@ listener.simple_combo("control j", function(){
         removePage();
         $(document).unbind("keydown");
     });
+
+    var keysToIgnore = new Set([9, 16, 17, 18, 19, 20, 27, 33, 34, 35, 36, 37, 38, 39, 40, 44, 45, 46, 91, 93, 112, 113, 114, 115, 116, 117, 118, 119, 120, 121, 122, 123, 144, 145])
+    
     $(document).keydown(function(e) {
         if (e.keyCode == 13) {
             followLink(valids);
@@ -84,14 +96,14 @@ listener.simple_combo("control j", function(){
         } else if (e.keyCode == 46 || e.keyCode == 8) {
             e.preventDefault();
             keys.pop();
+        } else if (keysToIgnore.has(e.keyCode)) {
+            // do nothing for special keys 
         } else {
             keys.push(e.keyCode);
         }
         valids = filterPage(keys);
         var currentChars = keysToString(keys);
-        console.log(currentChars);
         $('#user-prompt').html(currentChars);
-        console.log("currentChars: ", currentChars);
     });
 });
 

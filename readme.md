@@ -6,6 +6,7 @@
 ### Usage
   * see all the links on a given page: `Control - j`
   * links will filter as you type part of the title of the result. Results are not case-sensative.
+  * links will filter for each word that you have typed so you do not have type full titles or even full words - just the beginnings of words will do.
   * follow link: `return`
   * cancel: `Control - k`
 

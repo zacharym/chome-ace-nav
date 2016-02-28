@@ -3,7 +3,7 @@
 
     "name": "Ace-Jump-Navigator",
     "description": "Follow any link on the screen easily with the keyboard",
-    "version": "0.0.1",
+    "version": "0.0.2",
 
     "content_scripts": [
         {
